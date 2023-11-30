@@ -43,6 +43,22 @@ public class MessageService {
 		return messageDateList;
 	}
 	
+	public List<String> findUserNameById(int uid, String op){
+		List<String> UserNameList = new ArrayList<String>();
+		try {
+			if(op.equals("shou")) {
+				UserNameList = messageDAO.findReceivedMailUserNameById(uid);
+			}
+			else if(op.equals("fa")) {
+				UserNameList = messageDAO.findSentMailUserNameById(uid);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return UserNameList;
+	}
+	
 	public void writeMessage(int targetUserId, int originUserId, String messageTopic, String messageContent, int state, Date time ) throws SQLException {
 		messageDAO.writeMessage(targetUserId, originUserId, messageTopic, messageContent, state, time);
 	}

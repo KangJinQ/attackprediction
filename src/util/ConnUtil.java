@@ -10,20 +10,20 @@ import org.apache.commons.dbcp.BasicDataSourceFactory;
 
 //import com.edu.ustb.test.DBCPTest;
 /**
- * ²Ù×÷Êý¾Ý¿âÁ¬½Ó¶ÔÏóµÄ¡°¹¤¾ßÀà¡±
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½à¡±
  * @author KangJQ
  *
  */
 public class ConnUtil {
 	private static DataSource ds;
-	private static ThreadLocal<Connection>local = new ThreadLocal<>();//ÕâÊÇÒ»¸öÃ¿¸öÓÃ»§¶¼ÓÐµÄÒ»¸ö±£´æConnection¶ÔÏóµÄÈÝÆ÷£¬±ÜÃâÇ§¾üÍòÂí¹ý¶ÀÄ¾ÇÅ
-	static{//¾²Ì¬´úÂë¿é¡ª¡ªÖ»ÔËÐÐÒ»´Î
+	private static ThreadLocal<Connection>local = new ThreadLocal<>();//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Connectionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½
+	static{//ï¿½ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½é¡ªï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 			try {
-				//¼ÓÔØ×ÊÔ´ÎÄ¼þÐÅÏ¢µÄ¶ÔÏó
+				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢ï¿½Ä¶ï¿½ï¿½ï¿½
 				Properties prop = new Properties();
-				//´Ómysql5.propertiesÎÄ¼þÖÐ¼ÓÔØÐÅÏ¢
+				//ï¿½ï¿½mysql5.propertiesï¿½Ä¼ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 				prop.load(ConnUtil.class.getResourceAsStream("/mysql5.properties"));
-				//Ê¹ÓÃ¼ÓÔØµÄÐÅÏ¢´´½¨Êý¾ÝÔ´¶ÔÏó
+				//Ê¹ï¿½Ã¼ï¿½ï¿½Øµï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½
 				ds = BasicDataSourceFactory.createDataSource(prop);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -31,33 +31,33 @@ public class ConnUtil {
 	}
 	
 	/**
-	 * »ñµÃÒ»¸öÊý¾Ý¿âÁ¬½Ó¶ÔÏóµÄ·½·¨
-	 * @return Á¬½Ó¶ÔÏó
+	 * ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
+	 * @return ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
 	 * @throws SQLException 
 	 */
 	public static Connection getConn() throws SQLException{
-		Connection conn = local.get();			//´ÓÈÝÆäÖÐÈ¡³öÁ¬½Ó¶ÔÏó
-		if(conn == null || conn.isClosed()){	//Èç¹ûÁ´½Ó¶ÔÏó²»´æÔÚ£¬»òÁ¬½Ó¶ÔÏóÒÑ¾­¹Ø±Õ
-			conn = ds.getConnection();			//´ÓÊý¾ÝÔ´ÖÐÈ¡³öÒ»¸öÁ¬½Ó´´½¨Á¬½Ó¶ÔÏó
-			local.set(conn);					//½«Á¬½Ó·ÅÈë×Ô¼ºµÄlocalÈÝÆ÷ÖÐ
+		Connection conn = local.get();			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
+		if(conn == null || conn.isClosed()){	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ó²»´ï¿½ï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½Ø±ï¿½
+			conn = ds.getConnection();			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½È¡ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ó´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½
+			local.set(conn);					//ï¿½ï¿½ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½localï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		return conn;
 	}
 
 	/**
-	 * ¹Ø±ÕÊý¾Ý¿âÁ¬½Ó¶ÔÏóµÄ·½·¨
+	 * ï¿½Ø±ï¿½ï¿½ï¿½ï¿½Ý¿ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 	 */
 	public static void closeConn(){
-		Connection conn = local.get();	//µÃµ½×Ô¼ºÈÝÆ÷ÖÐµÄÁ¬½Ó
+		Connection conn = local.get();	//ï¿½Ãµï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½
 		try {
-			if(conn != null || !conn.isClosed()){	//ÓÐÁ¬½ÓÃ»¹Ø±Õ
-				conn.close();	//ÊÍ·ÅÁ¬½Ó
+			if(conn != null || !conn.isClosed()){	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ø±ï¿½
+				conn.close();	//ï¿½Í·ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-		}finally{	//±ØÐëÖ´ÐÐµÄ²¿·Ö£¬ÎÞÂÛÊ²Ã´Çé¿ö¶¼Ö´ÐÐ
-			conn = null;	//Á¬½ÓÇå¿Õ
-			local.set(null);//×Ô¼ºµÄÈÝÆ÷Çå¿Õ
+		}finally{	//ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ÐµÄ²ï¿½ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½Ê²Ã´ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½
+			conn = null;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			local.set(null);//ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		
 	}

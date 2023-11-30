@@ -25,6 +25,7 @@ public class MailBoxController extends HttpServlet {
 		String op = request.getParameter("op");
 		MessageService messageService = new MessageService();
 		List<String> messageList = new ArrayList<String>();
+		List<String> userNameList = new ArrayList<String>();
 		List<Date> messageDateList = new ArrayList<Date>();
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
@@ -32,8 +33,10 @@ public class MailBoxController extends HttpServlet {
 		messageList = messageService.findMailById(uid, op);
 		System.out.println(messageList);
 		messageDateList = messageService.findMailDateById(uid, op);
+		userNameList = messageService.findUserNameById(uid, op);
 		request.setAttribute("messageList", messageList);
 		request.setAttribute("messageDateList", messageDateList);
+		request.setAttribute("userNameList", userNameList);
 		request.getRequestDispatcher("/mailbox.jsp").forward(request, response);
 		//System.out.println(messageList);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());

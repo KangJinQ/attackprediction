@@ -20,7 +20,7 @@ public class WriteMessageController extends HttpServlet {
 		HttpSession session = request.getSession();
     	User user = (User) session.getAttribute("user");
 		int uid = user.getUserId();
-		
+		request.getRequestDispatcher("/writemessage.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
