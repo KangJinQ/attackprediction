@@ -67,23 +67,23 @@ public class UserService {
 	}
 	
 	/**
-	 * 鐢ㄦ埛鐧诲綍楠岃瘉
+	 * 检测用户名密码
 	 * @param userName 
 	 * @param userPassword 
 	 * @return user
-	 * @throws NameException 楠岃瘉鐢ㄦ埛鍚嶆槸鍚﹀瓨鍦�
-	 * @throws PassException 楠岃瘉瀵嗙爜鏄惁姝ｇ‘
+	 * @throws NameException 
+	 * @throws PassException
 	 */
 	public User isLogin(String userName, String userPassword) throws NameException, PassException{
 		try {
 			User user = this.userDao.existsUser(userName);
 			if(user == null){
-				throw new NameException("鐢ㄦ埛鍚嶄笉瀛樺湪");
+				throw new NameException("用户名错误");
 			} 
 			if(userPassword.equals(user.getUserPassword())){
 				return user;
 			} else{
-				throw new PassException("瀵嗙爜閿欒");
+				throw new PassException("密码错误");
 			}
 			
 		} catch (SQLException e) {

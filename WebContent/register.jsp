@@ -17,12 +17,12 @@
 			<table border="0" align="center" class="page-content">
 
 				<tr>
-					<td><label for="username">UserName:</label></td>
+					<td><label for="username">用户名:</label></td>
 					<td><input type="text" id="userName" name="userName" placeholder="请输入账号"
 						" onblur="checkUserName()"></td>
 				</tr>
 				<tr>
-					<td><label for="password">PassWord:</label></td>
+					<td><label for="password">密码:</label></td>
 					<td><input type="password" id="userPassword" name="userPassword" placeholder="请输入密码"
 						" onblur="checkPassword()"></td>
 				</tr>
