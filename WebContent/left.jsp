@@ -53,8 +53,8 @@ img {
 						<li class="sidebar-menuitem"><a href="mymatch.do?op=create" target="main">我组织的比赛</a></li>
 						<li class="sidebar-menuitem"><a href="mymatch.do?op=manage" target="main">我管理的比赛</a></li>
 						<li class="sidebar-menuitem"><a href="myteam.do" target="main">我的队伍</a></li>
-						<li class="sidebar-menuitem"><a href="mailbox.do" target="main">个人收信箱</a></li>
-						<li class="sidebar-menuitem"><a href="mailbox.do" target="main">个人发信箱</a></li>
+						<li class="sidebar-menuitem"><a href="mailbox.do?op=shou" target="main">个人收信箱</a></li>
+						<li class="sidebar-menuitem"><a href="mailbox.do?op=fa" target="main">个人发信箱</a></li>
 						<li class="sidebar-menuitem"><a href="userinfo.jsp" target="main">个人信息</a></li>
 					</ul>
 				</div>

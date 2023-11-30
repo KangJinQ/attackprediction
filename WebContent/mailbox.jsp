@@ -15,6 +15,7 @@
 			<tr class="listheader">
 				<td width="15%" nowrap="nowrap"><div align="center">📆消息日期</div></td>
 				<td width="75%" nowrap="nowrap"><div align="center">📄消息内容</div></td>
+				
 			</tr>
 			<c:choose>
 				<c:when test="${empty requestScope.messageList }">
@@ -39,7 +40,8 @@
 				</c:otherwise>
 			</c:choose>
 		</table>
+		
 	</fieldset>
-
+	<button><a href="writemessage.do" target="main">写信</a></button>
 </body>
 </html>

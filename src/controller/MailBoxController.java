@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.User;
-import service.MatchService;
+import service.MessageService;
 
 /**
  * Servlet implementation class MailBoxController
@@ -22,14 +22,16 @@ import service.MatchService;
 public class MailBoxController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MatchService matchService = new MatchService();
+		String op = request.getParameter("op");
+		MessageService messageService = new MessageService();
 		List<String> messageList = new ArrayList<String>();
 		List<Date> messageDateList = new ArrayList<Date>();
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		int uid = user.getUserId();
-		messageList = matchService.findMailById(uid);
-		messageDateList = matchService.findMailDateById(uid);
+		messageList = messageService.findMailById(uid, op);
+		System.out.println(messageList);
+		messageDateList = messageService.findMailDateById(uid, op);
 		request.setAttribute("messageList", messageList);
 		request.setAttribute("messageDateList", messageDateList);
 		request.getRequestDispatcher("/mailbox.jsp").forward(request, response);
