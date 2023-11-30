@@ -67,11 +67,11 @@ img {
 					</ul>
 				</div>
 				<c:choose>
-					<c:when test="${sessionScope.user.userRole eq 'superadmin' }">
+					<c:when test="${sessionScope.user.userRole eq true }">
 						<!-- 超级管理员权限 -->
 						<div class="page-sidebar">
 							<div class="sidebar-menugroup">
-								<div class="sidebar-grouptitle">比赛管理</div>
+								<div class="sidebar-grouptitle">管理员功能</div>
 								<ul class="sidebar-menu">
 									<li class="sidebar-menuitem"><a href="allmatch.do?page=showallmatch" target="main">所有比赛</a></li>
 									<li class="sidebar-menuitem"><a href="matchapprovalshow.do" target="main">比赛申请</a></li>
