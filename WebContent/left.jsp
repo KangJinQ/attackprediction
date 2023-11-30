@@ -34,9 +34,9 @@ img {
 					</ul>
 				</div>
 				<div class="sidebar-menugroup">
-					<div class="sidebar-grouptitle">比赛管理</div>
+					<div class="sidebar-grouptitle">预测管理</div>
 					<ul class="sidebar-menu">
-						<li class="sidebar-menuitem"><a>发起比赛</a></li>
+						<li class="sidebar-menuitem"><a>发起预测</a></li>
 						<li class="sidebar-menuitem"><a>参加比赛</a></li>
 						<li class="sidebar-menuitem"><a>用户信息</a></li>
 					</ul>
@@ -53,16 +53,17 @@ img {
 						<li class="sidebar-menuitem"><a href="mymatch.do?op=create" target="main">我组织的比赛</a></li>
 						<li class="sidebar-menuitem"><a href="mymatch.do?op=manage" target="main">我管理的比赛</a></li>
 						<li class="sidebar-menuitem"><a href="myteam.do" target="main">我的队伍</a></li>
-						<li class="sidebar-menuitem"><a href="mailbox.do" target="main">mailbox</a></li>
+						<li class="sidebar-menuitem"><a href="mailbox.do" target="main">个人收信箱</a></li>
+						<li class="sidebar-menuitem"><a href="mailbox.do" target="main">个人发信箱</a></li>
 						<li class="sidebar-menuitem"><a href="userinfo.jsp" target="main">个人信息</a></li>
 					</ul>
 				</div>
 				<div class="sidebar-menugroup">
-					<div class="sidebar-grouptitle">比赛管理</div>
+					<div class="sidebar-grouptitle">预测管理</div>
 					<ul class="sidebar-menu">
 
-						<li class="sidebar-menuitem"><a href="addmatch.jsp" target="main">发起比赛</a></li>
-						<li class="sidebar-menuitem"><a href="allmatch.do?page=joinmatch" target="main">参加比赛</a></li>
+						<li class="sidebar-menuitem"><a href="addmatch.jsp" target="main">发起预测</a></li>
+						<li class="sidebar-menuitem"><a href="allmatch.do?page=joinmatch" target="main">历史结果</a></li>
 						
 					</ul>
 				</div>
@@ -73,7 +74,7 @@ img {
 							<div class="sidebar-menugroup">
 								<div class="sidebar-grouptitle">管理员功能</div>
 								<ul class="sidebar-menu">
-									<li class="sidebar-menuitem"><a href="allmatch.do?page=showallmatch" target="main">所有比赛</a></li>
+									<li class="sidebar-menuitem"><a href="allmatch.do?page=showallmatch" target="main">所有预测</a></li>
 									<li class="sidebar-menuitem"><a href="matchapprovalshow.do" target="main">比赛申请</a></li>
 									<li class="sidebar-menuitem"><a href="finduserinfo.do?op=check" target="main">所有用户</a></li>
 

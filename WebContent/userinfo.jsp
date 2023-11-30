@@ -24,11 +24,11 @@ td {
 			</tr>
 			<tr>
 				<td>姓名</td>
-				<td colspan="4" colspan="1">${sessionScope.user.userName }</td>
+				<td colspan="4" colspan="1" align="center">${sessionScope.user.userName }</td>
 			</tr>
 			<tr>
 				<td>身份</td>
-				<td colspan="4" colspan="1">${sessionScope.user.userIdentity }</td>
+				<td colspan="4" colspan="1" align="center">${sessionScope.user.userRole }</td>
 			</tr>
 			<tr>
 				<td>报名手机号📱</td>
