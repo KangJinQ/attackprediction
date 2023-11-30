@@ -42,4 +42,8 @@ public class MessageService {
 		}
 		return messageDateList;
 	}
+	
+	public void writeMessage(int targetUserId, int originUserId, String messageTopic, String messageContent, int state, Date time ) throws SQLException {
+		messageDAO.writeMessage(targetUserId, originUserId, messageTopic, messageContent, state, time);
+	}
 }
