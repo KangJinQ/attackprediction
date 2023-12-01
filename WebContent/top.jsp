@@ -14,7 +14,7 @@
 		<div class="header-banner">
 			<br /> <img src="images/header.png" alt="CoolMeeting" />
 		</div>
-		<div class="header-title">欢迎访问贝壳赛事管理系统</div>
+		<div class="header-title">欢迎访问攻击路径预测系统</div>
 		<!--  <div class="header-quicklink">
 			<!-- 欢迎您，<strong>admin</strong> 
 			<%String employeename = (String) session.getAttribute("username");%>

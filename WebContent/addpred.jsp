@@ -23,15 +23,20 @@
 
 
 <%
-    String message = (String) request.getAttribute("message");
-    if (message != null) {
-        out.println("<p>" + message + "</p>");
+    String msg = (String) request.getAttribute("msg");
+    if (msg != null) {
+        out.println("<p>" + msg + "</p>");
     }
 %>
 
 
 	<!--注册表单-->
-	<form id="addmatchForm" action="addmatch.do" method="post">
+	<form action="uploadfile.do" method="post" enctype="multipart/form-data">
+	    				选择文件： <input type="file" name="f" id="f" size="50" /><br/>
+	    				<input type="submit" value="上传文件" />
+					</form>
+	<form id="addpredForm" action="uploadfile.do" method="post">
+		
 		<input type="hidden" name="action" value="register">
 		<fieldset>
 			<legend>攻击路径预测😈</legend>
@@ -63,10 +68,7 @@
 				</tr>
 				<tr>
 					<td>
-					<form action="uploadfile.do" method="post" enctype="multipart/form-data">
-	    				选择文件：<input type="file" name="file" size="50" /><br/>
-	    				<input type="submit" value="上传文件" />
-					</form>
+					
 					</td>
 				</tr>
 				<!--
@@ -105,7 +107,7 @@
 				-->
 
 				<tr>
-					<td><input type="submit" class="submit" value="创建比赛🛏😁"></td>
+					<td><input type="submit" class="submit" value="开始推理攻击路径🛏"></td>
 					<td><button onclick="window.history.back()">返回◀</button></td>
 				</tr>
 			</table>
