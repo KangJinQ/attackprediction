@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class UploadFileController
  */
-@WebServlet("/UploadFileController")
+@WebServlet("/uploadfile.do")
 public class UploadFileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
