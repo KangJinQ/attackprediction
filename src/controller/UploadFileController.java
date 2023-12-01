@@ -41,46 +41,7 @@ public class UploadFileController extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		// response.getWriter().append("Served at: ").append(request.getContextPath());
-	    PredDAO predDao = new PredDAO();
-	
-	    System.out.println("来咯");
-	    InputStream fileContent = null;
-	    String fileName = null;
-	
-	    try {
-	        Part filePart = request.getPart("f");
-	        fileName = getSubmittedFileName(filePart);
-	        
-	        if (fileName != null && fileName.endsWith(".csv")) {
-		        fileContent = filePart.getInputStream();
-		
-		        // 保存文件
-		        boolean fileSaved = predDao.saveFile(fileName, fileContent);
-		
-		        if (fileSaved) {
-		            // 保存文件信息到数据库
-		            boolean fileInfoSaved = predDao.saveFileInfo(fileName);
-		
-		            if (fileInfoSaved) {
-		                request.setAttribute("message", "文件上传成功！");
-		            } else {
-		                request.setAttribute("message", "文件信息保存失败！");
-		            }
-		        } else {
-		            request.setAttribute("message", "文件保存失败！");
-		        }
-	        } else {
-	        	request.setAttribute("message", "请上传.csv文件");
-	        }
-		    } catch (Exception e) {
-		        e.printStackTrace();
-		        request.setAttribute("message", "文件上传失败：" + e.getMessage());
-		    } finally {
-		        if (fileContent != null) {
-		            fileContent.close();
-		        }
-		    }
-	    response.sendRedirect(request.getContextPath() + "/addpred.jsp");
+
 	    // RequestDispatcher dispatcher = request.getRequestDispatcher("addpred.jsp");
 	    // dispatcher.forward(request, response);
 	}
@@ -92,10 +53,14 @@ public class UploadFileController extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
+		// 1 前端获得参数
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		int userId = user.getUserId();
-
+		String predName = request.getParameter("predname");
+		
+		System.out.println(predName);
+		
 		PredService predService = new PredService();
 		
 	    InputStream fileContent = null;
@@ -104,6 +69,7 @@ public class UploadFileController extends HttpServlet {
 	    try {
 	        Part filePart = request.getPart("f");
 	        fileName = getSubmittedFileName(filePart);
+	        System.out.println(fileName);
 	        
 	        if (fileName != null && fileName.endsWith(".csv")) {
 		        fileContent = filePart.getInputStream();
@@ -111,22 +77,24 @@ public class UploadFileController extends HttpServlet {
 		        // 保存文件
 		        boolean fileSaved = predService.uploadFile(fileName, fileContent, userId, predName);
 		        if (fileSaved) {
-		        	request.setAttribute("message", "文件上传成功！");
+		        	request.setAttribute("msg", "文件上传成功！");
 		        } else {
-		        	request.setAttribute("message", "文件保存失败！");
+		        	request.setAttribute("msg", "文件保存失败！");
 		        }
+		        request.getRequestDispatcher("/addpred.jsp").forward(request, response);
 		    } else {
-		    	request.setAttribute("message", "请上传.csv文件");
+		    	request.setAttribute("msg", "请上传.csv文件");
+		    	response.sendRedirect(request.getContextPath() + "/addpred.jsp");
 		    }
 		    } catch (Exception e) {
 		        e.printStackTrace();
-		        request.setAttribute("message", "文件上传失败：" + e.getMessage());
+		        request.getRequestDispatcher("/addpred.jsp").forward(request, response);
+		        // request.setAttribute("msg", "文件上传失败：" + e.getMessage());
 		    } finally {
 		        if (fileContent != null) {
 		            fileContent.close();
 		        }
 		    }
-	    response.sendRedirect(request.getContextPath() + "/addpred.jsp");
 	}
 
 }

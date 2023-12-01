@@ -22,24 +22,16 @@
 <%@ page import="java.io.InputStream" %>
 
 
-<%
-    String msg = (String) request.getAttribute("msg");
-    if (msg != null) {
-        out.println("<p>" + msg + "</p>");
-    }
-%>
-
-
 	<!--注册表单-->
 	<form action="uploadfile.do" method="post" enctype="multipart/form-data">
-	    				选择文件： <input type="file" name="f" id="f" size="50" /><br/>
-	    				<input type="submit" value="上传文件" />
-					</form>
-	<form id="addpredForm" action="uploadfile.do" method="post">
-		
 		<input type="hidden" name="action" value="register">
 		<fieldset>
 			<legend>攻击路径预测😈</legend>
+	    				
+	    				<!-- <input type="submit" value="上传文件" /> -->
+					<!-- </form> -->
+			<!-- <form id="addpredForm" action="uploadfile.do" method="post"> -->
+		
 			<table align="center" class="page-content">
 				<%
 					String msg = (String) request.getAttribute("msg");
@@ -49,6 +41,7 @@
 					if (msg != null) {
 				%>
 				<tr>
+					
 					<td>提示信息:</td>
 					<td><font color='black'> <%=msg%>
 					</font></td>
@@ -62,14 +55,15 @@
 						placeholder="请输入预测名字" onblur="checkUserName()"></td>
 				</tr>
 				<tr>
+					<td><label for="f" class="xrequired">选择文件：</label> 
+						<input type="file" name="f" id="f" size="50" /><br/>
+					</td>
+				
+				</tr>
+				<tr>
 					<td><label class="xrequired">请选择预测类型：</label></td>
 					<td><input type="radio" name="predtype" value="0">公有比赛<input
 						type="radio" name="predtype" value="1">私有比赛</td>
-				</tr>
-				<tr>
-					<td>
-					
-					</td>
 				</tr>
 				<!--
 				<tr>

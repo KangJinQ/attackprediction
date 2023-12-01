@@ -30,27 +30,10 @@ public class PredDAO {
         }
     }
 	
-	// Ã»¸ÄÍê*************
-	public boolean saveFileInfo(String fileName) throws SQLException {
-        String sql = "INSERT INTO tab_prediction (pcap_id) VALUES (?)";
-        Connection conn = ConnUtil.getConn();
-		PreparedStatement pstat = conn.prepareStatement(sql);
-		pstat.setString(1, fileName);
-		int rowsAffected = pstat.executeUpdate();
-        return rowsAffected > 0;
-    }
-	
 	public boolean addPred(Integer userId, String pcapId, String pcapUrl, String predName, Date time) 
 			throws SQLException {
-		/**pre_id
-		user_id
-		pcap_id
-		pcap_url
-		pre_name
-		time
-		result
-		state**/
-		String sql = "insert into tab_prediction(user_id,pcap_id,pcap_url,predName,time,state) "
+		/**pre_id user_id pcap_id pcap_url pre_name time result state**/
+		String sql = "insert into tab_prediction(user_id,pcap_id,pcap_url,pre_name,time,state) "
 				+ " values(?,?,?,?,?,?)";
 		Connection conn = ConnUtil.getConn();
 		PreparedStatement pstat = conn.prepareStatement(sql);
