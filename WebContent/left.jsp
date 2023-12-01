@@ -62,7 +62,7 @@ img {
 					<div class="sidebar-grouptitle">预测管理</div>
 					<ul class="sidebar-menu">
 
-						<li class="sidebar-menuitem"><a href="addmatch.jsp" target="main">发起预测</a></li>
+						<li class="sidebar-menuitem"><a href="addpred.jsp" target="main">发起预测</a></li>
 						<li class="sidebar-menuitem"><a href="allmatch.do?page=joinmatch" target="main">历史结果</a></li>
 						
 					</ul>

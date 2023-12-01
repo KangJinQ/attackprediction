@@ -32,9 +32,19 @@
 			<c:otherwise>
 				<!-- 登录状态  -->
 				<div class="header-quicklink">
-					<span>欢迎回来，${sessionScope.user.userRole }
+				<c:choose>
+					<c:when test="${sessionScope.user.userRole eq true }">
+					<span>欢迎回来，管理员
 						${sessionScope.user.userName }</span> <a href="logout.do"
 						target="_parent">退出</a>
+					</c:when>
+					
+					<c:otherwise>
+					<span>欢迎回来，用户
+						${sessionScope.user.userName }</span> <a href="logout.do"
+						target="_parent">退出</a>
+					</c:otherwise>
+				</c:choose>	
 				</div>
 			</c:otherwise>
 		</c:choose>
