@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.Part" %>
+<%@ page import="java.util.Collection" %>
 <!DOCTYPE>
 
 <html>
@@ -9,6 +11,25 @@
 <link rel="stylesheet" href="styles/common.css" />
 </head>
 <body>
+
+<%@ page import="java.io.File" %>
+<%@ page import="java.util.List" %>
+<%@ page import="org.apache.commons.fileupload.FileItem" %>
+<%@ page import="org.apache.commons.fileupload.FileUploadException" %>
+<%@ page import="org.apache.commons.fileupload.disk.DiskFileItemFactory" %>
+<%@ page import="org.apache.commons.fileupload.servlet.ServletFileUpload" %>
+<!-- <%@ page import="org.apache.commons.io.IOUtils" %> -->
+<%@ page import="java.io.InputStream" %>
+
+
+<%
+    String message = (String) request.getAttribute("message");
+    if (message != null) {
+        out.println("<p>" + message + "</p>");
+    }
+%>
+
+
 	<!--注册表单-->
 	<form id="addmatchForm" action="addmatch.do" method="post">
 		<input type="hidden" name="action" value="register">
@@ -39,6 +60,14 @@
 					<td><label class="xrequired">请选择预测类型：</label></td>
 					<td><input type="radio" name="predtype" value="0">公有比赛<input
 						type="radio" name="predtype" value="1">私有比赛</td>
+				</tr>
+				<tr>
+					<td>
+					<form action="uploadfile.do" method="post" enctype="multipart/form-data">
+	    				选择文件：<input type="file" name="file" size="50" /><br/>
+	    				<input type="submit" value="上传文件" />
+					</form>
+					</td>
 				</tr>
 				<!--
 				<tr>
