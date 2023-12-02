@@ -17,14 +17,14 @@ import service.MatchService;
 /**
  * Servlet implementation class AllMatchController
  */
-@WebServlet("/allmatch.do")
-public class AllMatchController extends HttpServlet {
+@WebServlet("/allpred.do")
+public class AllPredController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// HttpSession session = request.getSession();
 		MatchService matchService = new MatchService();
 		List<Match> allmatchList = new ArrayList<Match>();
-		allmatchList = matchService.selectByStatus("已通过");
+		allmatchList = matchService.selectByStatus("宸查�氳繃");
 		request.setAttribute("allmatchList", allmatchList);
 		String page = request.getParameter("page");
 		// System.out.println(page);

@@ -5,11 +5,11 @@ import java.util.Date;
 public class Pred {
 	private Integer predId;		//pre_id	int
 	private Integer userId;		//user_id	int
-	private Integer pcapId;		//pcap_id	int
+	private String pcapId;		//pcap_id	int
 	private String pcapUrl;		//pcap_url	varchar
 	private String predName;	//pre_name	varchar
-	private Date time;			//time	datetime
-	private String result;		//result	varchar
+	private Date time;			//time		datetime
+	private String result;		//result_id	varchar
 	private Integer state;		//state	int
 	
 	public Integer getPredId() {
@@ -24,10 +24,10 @@ public class Pred {
 	public void setUserId(Integer userId) {
 		this.userId = userId;
 	}
-	public Integer getPcapId() {
+	public String getPcapId() {
 		return pcapId;
 	}
-	public void setPcapId(Integer pcapId) {
+	public void setPcapId(String pcapId) {
 		this.pcapId = pcapId;
 	}
 	public String getPcapUrl() {

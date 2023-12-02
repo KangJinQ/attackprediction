@@ -49,11 +49,7 @@ img {
 				<div class="sidebar-menugroup">
 					<div class="sidebar-grouptitle">个人中心</div>
 					<ul class="sidebar-menu">
-						<li class="sidebar-menuitem active"><a href="mymatch.do?op=join" target="main">我参加的比赛</a></li>
-						<li class="sidebar-menuitem"><a href="mymatch.do?op=create" target="main">我组织的比赛</a></li>
-						<li class="sidebar-menuitem"><a href="mymatch.do?op=manage" target="main">我管理的比赛</a></li>
-						<li class="sidebar-menuitem"><a href="myteam.do" target="main">我的队伍</a></li>
-						<li class="sidebar-menuitem"><a href="mailbox.do?op=shou" target="main">个人收信箱</a></li>
+						<li class="sidebar-menuitem active"><a href="mailbox.do?op=shou" target="main">个人收信箱</a></li>
 						<li class="sidebar-menuitem"><a href="mailbox.do?op=fa" target="main">个人发信箱</a></li>
 						<li class="sidebar-menuitem"><a href="userinfo.jsp" target="main">个人信息</a></li>
 					</ul>
@@ -63,7 +59,7 @@ img {
 					<ul class="sidebar-menu">
 
 						<li class="sidebar-menuitem"><a href="addpred.jsp" target="main">发起预测</a></li>
-						<li class="sidebar-menuitem"><a href="allmatch.do?page=joinmatch" target="main">历史结果</a></li>
+						<li class="sidebar-menuitem"><a href="mypred.do?" target="main">历史结果</a></li>
 						
 					</ul>
 				</div>

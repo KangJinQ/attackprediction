@@ -2,6 +2,7 @@ package controller;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -73,10 +74,13 @@ public class UploadFileController extends HttpServlet {
 	        
 	        if (fileName != null && fileName.endsWith(".csv")) {
 		        fileContent = filePart.getInputStream();
-		
 		        // 保存文件
-		        boolean fileSaved = predService.uploadFile(fileName, fileContent, userId, predName);
+		        Date time = new Date();
+		        boolean fileSaved = predService.uploadFile(fileName, fileContent, userId, predName, time);
+		        String resultId = predService.sendRequestion2Python(fileName, time);
+		        
 		        if (fileSaved) {
+		        	predService.savePred(userId, fileName, predName, resultId, time);
 		        	request.setAttribute("msg", "文件上传成功！");
 		        } else {
 		        	request.setAttribute("msg", "文件保存失败！");
