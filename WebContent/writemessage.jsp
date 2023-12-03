@@ -8,35 +8,53 @@
 <link rel="stylesheet" type="text/css" href="styles/common03.css" />
 <title>MailBox</title>
 </head>
+	
 <body>
 		
-		
+		<script>
+        function checkInputs() {
+            // 获取三个输入框的值
+            var input1Value = document.getElementById('input1').value;
+            var input2Value = document.getElementById('input2').value;
+            var input3Value = document.getElementById('input3').value;
+
+            // 获取提交按钮
+            var submitButton = document.getElementById('submitButton');
+
+            // 检查输入框的值是否都不为空，如果是则启用提交按钮，否则禁用
+            if (input1Value !== '' && input2Value !== '' && input3Value !== '') {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+    </script>
 
 
 		<!--注册表单-->
-		<form id="registerForm" action="mailbox.do?op=fa" method="post">
+		<form id="registerForm" action="writemessage.do" method="post">
 			<input type="hidden" name="action" value="register">
 			<fieldset>
 				<legend>写信📫</legend>
 				<table border="0" align="center" class="page-content">
 	
 					<tr>
-						<td><label for="username">收件人:</label></td>
-						<td><input type="text" style="width: 200px;"id="userName" name="userName" placeholder="请输入收件人ID"
+						<td><label for="target_uid">收件人:</label></td>
+						<td><input id="input1" oninput="checkInputs()" type="text" style="width: 200px;"id="target_uid" name="target_uid" placeholder="请输入收件人ID"
 							onblur="checkUserName()"></td>
 					</tr>
 					<tr>
-						<td><label for="password">主题:</label></td>
-						<td><input type="password" style="width: 200px;"id="userPassword" name="userPassword" placeholder="请输入主题"
+						<td><label for="topic">主题:</label></td>
+						<td><input id="input2" oninput="checkInputs()" type="text" style="width: 200px;"id="topic" name="topic" placeholder="请输入主题"
 							onblur="checkPassword()"></td>
 					</tr>
 					<tr>
-						<td class="td_left"><label for="userPhone">正文:</label></td>
-						<td class="td_right"><input style="width: 600px; height: 90px;" type="text" id="userPhone" name="userPhone"
+						<td class="td_left"><label for="content">正文:</label></td>
+						<td class="td_right"><input id="input3" oninput="checkInputs()" style="width: 600px; height: 90px;" type="text" id="content" name="content"
 							placeholder="请输入正文"></td>
 					</tr>
 					<tr>
-					<td><input type="submit" class="submit" value="发送" onclick="checkPassword()"></td>
+					<td><input type="submit" class="submit" value="发送" id="submitButton" onclick="checkPassword()" disabled></td>
 					</tr>
 				
 				</table>

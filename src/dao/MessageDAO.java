@@ -68,7 +68,7 @@ public class MessageDAO {
 	
 	public List<String> findReceivedMailUserNameById(int uid) throws SQLException{
 		List<String> userNameList = new ArrayList<String>();
-		String sql = "select tab_message.* from tab_message where origin_user = ? order by message_id DESC ";
+		String sql = "select tab_message.* from tab_message where target_user = ? order by message_id DESC ";
 		Connection conn = ConnUtil.getConn();
 		PreparedStatement pstat = conn.prepareStatement(sql);
 		pstat.setInt(1, uid);
@@ -92,7 +92,7 @@ public class MessageDAO {
 		return userNameList;
 	}
 	
-	public void writeMessage(int targetUserId, int originUserId, String messageTopic, String messageContent, int state, Date time ) throws SQLException {
+	public void writeMessage(int targetUserId, int originUserId, String messageTopic, String messageContent, int state, String time ) throws SQLException {
 		
 		String sql = "insert into tab_message(target_user,origin_user,message_topic,message,state,time) "
 				+ " values(?,?,?,?,?,?)";
@@ -103,7 +103,7 @@ public class MessageDAO {
 		pstat.setString(3, messageTopic);
 		pstat.setString(4, messageContent);
 		pstat.setInt(5, state);
-		pstat.setString(6, DateUtil.getString(time));
+		pstat.setString(6, time);
 		pstat.executeUpdate();
 		
 	}

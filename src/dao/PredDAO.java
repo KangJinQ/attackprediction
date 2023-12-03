@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import domain.Match;
 import domain.Pred;
 import util.ConnUtil;
 import util.DateUtil;

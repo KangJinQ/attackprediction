@@ -16,7 +16,6 @@
 				<td width="15%" nowrap="nowrap"><div align="center">📆消息日期</div></td>
 				<td width="15%" nowrap="nowrap"><div align="center">^.^用户ID</div></td>
 				<td width="75%" nowrap="nowrap"><div align="center">📄消息内容</div></td>
-				<td width="15%" nowrap="nowrap"><div align="center">:D</div></td>
 				
 			</tr>
 			<c:choose>
@@ -37,8 +36,7 @@
 							<td nowrap="nowrap"><div align="center">${messageDateList[loop.count-1] }</div></td>
 							<td nowrap="nowrap"><div align="center">${userNameList[loop.count-1] }</div></td>
 							<td nowrap="nowrap"><div align="center">${message }</div></td>
-							<td nowrap="nowrap"><input type="button" value="回信" class="clickbutton"
-							onclick="window.location.href='writemessage.jsp';" /></td>
+
 						</tr>
 						<!-- 这个是商品信息展示的结束 -->
 					</c:forEach>
@@ -50,5 +48,10 @@
 	<input type="button" value="写信" class="clickbutton"
 	onclick="window.location.href='writemessage.jsp';" />
 	<!-- <button><a href="writemessage.do" target="main">写信</a></button> -->
+	<c:if test="${not empty msg}">
+        <script>
+            alert("${msg}");
+        </script>
+    </c:if>
 </body>
 </html>

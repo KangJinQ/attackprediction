@@ -37,7 +37,12 @@ public class MailBoxController extends HttpServlet {
 		request.setAttribute("messageList", messageList);
 		request.setAttribute("messageDateList", messageDateList);
 		request.setAttribute("userNameList", userNameList);
-		request.getRequestDispatcher("/mailbox.jsp").forward(request, response);
+		if(op.equals("shou")) {
+			request.getRequestDispatcher("/mailbox.jsp").forward(request, response);
+		}
+		else if(op.equals("fa")) {
+			request.getRequestDispatcher("/mailboxfa.jsp").forward(request, response);
+		}
 		//System.out.println(messageList);
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 	}

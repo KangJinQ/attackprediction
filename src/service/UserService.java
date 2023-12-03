@@ -17,6 +17,18 @@ import util.ConnUtil;
 public class UserService {
 	private UserDAO userDao = new UserDAO();
 	
+	public User isExistById(int user_id) {
+		try {
+			if(userDao.existsUserById(user_id)!=null) {
+				return userDao.existsUserById(user_id);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
 	/**
 	 * 判断用户名是否存在
 	 * @param user_name 

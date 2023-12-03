@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import domain.Match;
 import domain.User;
 import util.ConnUtil;
 //import util.DateUtil;
@@ -25,6 +24,28 @@ public class UserDAO {
 		pstat.setBoolean(1, value);
 		pstat.setInt(2, uid);
 		pstat.executeUpdate();
+	}
+	
+	public User existsUserById(int user_id) throws SQLException {
+		String sql = "select * from tab_user where user_id = ?"; // sql语句
+		Connection conn = ConnUtil.getConn();
+		PreparedStatement pstat = conn.prepareStatement(sql);
+		pstat.setInt(1, user_id);
+		ResultSet rs = pstat.executeQuery();
+		if (rs.next()) {
+			User user = new User();
+			user.setUserId(rs.getInt("user_id"));
+			user.setUserName(rs.getString("user_name"));
+			user.setUserPassword(rs.getString("user_password"));
+			user.setUserPhone(rs.getString("user_phone"));
+			user.setUserEmail(rs.getString("user_email"));
+			user.setUserRole(rs.getBoolean("user_role"));
+			user.setActionPassword(rs.getString("action_pwd"));
+			user.setState(rs.getBoolean("state"));
+			return user; // 返回user对象
+		} else {
+			return null; // 如果没查到对应名字的user对象 返回null
+		}
 	}
 
 	/**

@@ -59,7 +59,7 @@ public class MessageService {
 		return UserNameList;
 	}
 	
-	public void writeMessage(int targetUserId, int originUserId, String messageTopic, String messageContent, int state, Date time ) throws SQLException {
+	public void writeMessage(int targetUserId, int originUserId, String messageTopic, String messageContent, int state, String time ) throws SQLException {
 		messageDAO.writeMessage(targetUserId, originUserId, messageTopic, messageContent, state, time);
 	}
 }
