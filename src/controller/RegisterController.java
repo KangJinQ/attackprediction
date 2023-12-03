@@ -42,7 +42,8 @@ public class RegisterController extends HttpServlet {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				} finally {
-					response.sendRedirect(request.getContextPath() + "/login.jsp");
+//					response.sendRedirect(request.getContextPath() + "/login.jsp");
+					request.getRequestDispatcher("/01.html").forward(request, response);
 				}
 			} else {
 				// ×¢²áÊ§°Ü»ØÏÔ
