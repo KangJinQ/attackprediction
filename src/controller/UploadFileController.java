@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 
+import org.apache.tomcat.jni.Time;
+
 import dao.PredDAO;
 import domain.User;
 import service.PredService;
@@ -55,6 +57,7 @@ public class UploadFileController extends HttpServlet {
 		// TODO Auto-generated method stub
 		// doGet(request, response);
 		// 1 前端获得参数
+		
 		HttpSession session = request.getSession();
 		User user = (User) session.getAttribute("user");
 		int userId = user.getUserId();
@@ -88,7 +91,8 @@ public class UploadFileController extends HttpServlet {
 		        request.getRequestDispatcher("/addpred.jsp").forward(request, response);
 		    } else {
 		    	request.setAttribute("msg", "请上传.csv文件");
-		    	response.sendRedirect(request.getContextPath() + "/addpred.jsp");
+//		    	response.sendRedirect(request.getContextPath() + "/addpred.jsp");
+		    	request.getRequestDispatcher("/addpred.jsp").forward(request, response);
 		    }
 		    } catch (Exception e) {
 		        e.printStackTrace();

@@ -30,6 +30,7 @@ public class ShowPredDetailController extends HttpServlet {
 		request.setAttribute("user", user);
 
 		int predId = Integer.parseInt(request.getParameter("pre_id"));
+		System.out.println(predId);
 		int userId = user.getUserId();
 		
 		PredService predService = new PredService();

@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="javax.servlet.http.Part" %>
 <%@ page import="java.util.Collection" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE>
 
 <html>
@@ -21,7 +22,6 @@
 <!-- <%@ page import="org.apache.commons.io.IOUtils" %> -->
 <%@ page import="java.io.InputStream" %>
 
-
 	<!--注册表单-->
 	<form action="uploadfile.do" method="post" enctype="multipart/form-data">
 		<input type="hidden" name="action" value="register">
@@ -40,6 +40,7 @@
 				<%
 					if (msg != null) {
 				%>
+				
 				<tr>
 					
 					<td>提示信息:</td>
@@ -65,40 +66,6 @@
 					<td><input type="radio" name="predtype" value="0">公有比赛<input
 						type="radio" name="predtype" value="1">私有比赛</td>
 				</tr>
-				<!--
-				<tr>
-					<td><label class="xrequired">比赛赛制:</label></td>
-					<td><select id="matchsystem" name="matchsystem"
-						aria-placeholder="--请选择--">
-							<option checked>--请选择--</option>
-							<option value="联赛">联赛</option>
-							<option value="杯赛">杯赛</option>
-							<option value="淘汰赛">淘汰赛</option>
-							<option value="锦标赛">锦标赛</option>
-							<option value="团体赛">团体赛</option>
-					</select></td>
-				</tr>
-				<tr>
-					<td><label class="xrequired">比赛开始时间:</label></td>
-					<td><input type="date" id="matchstarttime" min="2021-01-01"
-						name="matchstarttime" required></td>
-				</tr>
-				<tr>
-					<td><label class="xrequired">比赛结束时间:</label></td>
-					<td><input type="date" id="matchendtime" min="2021-05-26"
-						name="matchendtime" placeholder="xxxx" required></td>
-				</tr>
-				<tr>
-					<td><label class="xrequired">人数/队伍上限:</label></td>
-					<td><input type="text" id="matchnumber" name="matchnumber"
-						placeholder="人数/队伍上限"></td>
-				</tr>
-				<tr>
-					<td>比赛介绍:</td>
-					<td><textarea id="matchinfo" name="matchinfo"
-							placeholder="请输入比赛的相关介绍"></textarea></td>
-				</tr>
-				-->
 
 				<tr>
 					<td><input type="submit" class="submit" value="开始推理攻击路径🛏"></td>
@@ -107,6 +74,13 @@
 			</table>
 		</fieldset>
 	</form>
+	
+ 	<c:if test="${not empty msg}">
+        <script>
+            alert("${msg}");
+        </script>
+    </c:if>
+    
 	<script type="text/javascript">
 		window.onload = function() {
 			//得到当前时间

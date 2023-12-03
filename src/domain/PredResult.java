@@ -4,15 +4,15 @@ public class PredResult {
 	private String resultId;		// result_id varchar
 	private String imgUrl;			// img_url	varchar
 	
-	private float pathPro1;			// path1_probability	float
+	private String pathPro1;			// path1_probability	float
 	private String target1;			// target_1	varchar
 	private String path1;			// path_1	varchar
 	
-	private float pathPro2;			// path2_probability	float
+	private String pathPro2;			// path2_probability	float
 	private String target2;			// target_2	varchar
 	private String path2;			// path_2	varchar
 	
-	private float pathPro3;			// path3_probability	float
+	private String pathPro3;			// path3_probability	float
 	private String target3;			// target_3	varchar
 	private String path3;					// path_3	varchar
 	public String getResultId() {
@@ -27,10 +27,10 @@ public class PredResult {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public float getPathPro1() {
+	public String getPathPro1() {
 		return pathPro1;
 	}
-	public void setPathPro1(float pathPro1) {
+	public void setPathPro1(String pathPro1) {
 		this.pathPro1 = pathPro1;
 	}
 	public String getTarget1() {
@@ -45,10 +45,10 @@ public class PredResult {
 	public void setPath1(String path1) {
 		this.path1 = path1;
 	}
-	public float getPathPro2() {
+	public String getPathPro2() {
 		return pathPro2;
 	}
-	public void setPathPro2(float pathPro2) {
+	public void setPathPro2(String pathPro2) {
 		this.pathPro2 = pathPro2;
 	}
 	public String getTarget2() {
@@ -63,10 +63,10 @@ public class PredResult {
 	public void setPath2(String path2) {
 		this.path2 = path2;
 	}
-	public float getPathPro3() {
+	public String getPathPro3() {
 		return pathPro3;
 	}
-	public void setPathPro3(float pathPro3) {
+	public void setPathPro3(String pathPro3) {
 		this.pathPro3 = pathPro3;
 	}
 	public String getTarget3() {

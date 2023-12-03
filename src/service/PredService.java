@@ -24,7 +24,7 @@ public class PredService {
 	public boolean uploadFile(String fileName, InputStream fileContent, 
 			Integer userId, String predName, Date time) throws SQLException {
         // 在这里可以进行业务逻辑处理，例如文件大小限制、权限检查等
-		String pcapUrl = "C:\\Users\\kjq20\\Desktop\\admin" + File.separator + DateUtil.getString(time) + fileName;
+		String pcapUrl = "D:\\Works\\Java\\attackprediction\\WebContent\\result" + File.separator + DateUtil.getString(time) + fileName;
         // 保存文件
         // boolean fileSaved = predDao.addPred(userId, pcapId, pcapUrl, predName, time);
 		boolean fileSaved = predDao.saveFile(fileContent, pcapUrl);
@@ -34,7 +34,7 @@ public class PredService {
 	
 	public boolean savePred(Integer userId, String fileName,  
 				String predName, String resultId, Date time) throws SQLException {
-		String pcapUrl = "C:\\Users\\kjq20\\Desktop\\admin" + File.separator + DateUtil.getString(time) + fileName;
+		String pcapUrl = "D:\\Works\\Java\\attackprediction\\WebContent\\result" + File.separator + DateUtil.getString(time) + fileName;
 		return predDao.addPred(userId, fileName, pcapUrl, predName, time, resultId);
 	}
 	
@@ -82,7 +82,7 @@ public class PredService {
 	public String sendRequestion2Python(String pcapName, Date time) {
         try {
             String url = "http://localhost:8000/jsprequest";  
-            String pcapUrl = "C:\\Users\\kjq20\\Desktop\\admin" + File.separator + DateUtil.getString(time) + pcapName;
+            String pcapUrl = "D:\\Works\\Java\\attackprediction\\WebContent\\result" + File.separator + DateUtil.getString(time) + pcapName;
             String params = "url=" + URLEncoder.encode(pcapUrl, "UTF-8");  // 参数
 
             URL obj = new URL(url);

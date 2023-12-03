@@ -19,7 +19,7 @@
 			</tr>
 			<tr>
 				<td><div align="center">${pred.time }</div></td>
-				<td><div align="center">${pred.predId }</div></td>
+				<td><div align="center">${pred.predName }</div></td>
 				<td><div align="center">${pred.userId }</div></td>
 			</tr>
 		</table>
@@ -49,6 +49,8 @@
 			<tr>
 				<td colspan="3"><div align="center"><img src="${predResult.imgUrl }" 
 					 alt="Your Image"></div></td>
+					 
+					 
 			</tr>
 		</table>
 	</fieldset>
