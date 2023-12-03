@@ -47,6 +47,15 @@ public class PredService {
 		}
 	}
 	
+	public void returnPredById(int predId) {
+		try {
+			predDao.changePredIntAttr(predId, "state", 2);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public Pred findPredByPredId(int predId) {
 		Pred pred = new Pred();
 		try {

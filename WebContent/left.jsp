@@ -70,8 +70,7 @@ img {
 							<div class="sidebar-menugroup">
 								<div class="sidebar-grouptitle">管理员功能</div>
 								<ul class="sidebar-menu">
-									<li class="sidebar-menuitem"><a href="allmatch.do?page=showallmatch" target="main">所有预测</a></li>
-									<li class="sidebar-menuitem"><a href="matchapprovalshow.do" target="main">比赛申请</a></li>
+									<li class="sidebar-menuitem"><a href="allpred.do" target="main">所有预测</a></li>
 									<li class="sidebar-menuitem"><a href="finduserinfo.do?op=check" target="main">所有用户</a></li>
 
 								</ul>

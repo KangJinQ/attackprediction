@@ -16,6 +16,16 @@ import util.ConnUtil;
 //import util.SHAUtil;
 
 public class UserDAO {
+	
+	public void changeAttrWithBoolValue(int uid, String col, boolean value) 
+			throws SQLException {
+		String sql = "Update tab_user SET " + col + " = ? where user_id = ?"; // sql语句
+		Connection conn = ConnUtil.getConn();
+		PreparedStatement pstat = conn.prepareStatement(sql);
+		pstat.setBoolean(1, value);
+		pstat.setInt(2, uid);
+		pstat.executeUpdate();
+	}
 
 	/**
 	 * 根据用户名查找用户对象
@@ -76,7 +86,7 @@ public class UserDAO {
 	 */
 	public List<User> getAllUser() throws SQLException {
 		List<User> userList = new ArrayList<User>();
-		String sql = "SELECT * FROM tab_user where state != 1 and user_role != 1 ORDER BY user_id ASC ";
+		String sql = "SELECT * FROM tab_user where state != 1 ORDER BY user_id ASC ";
 		Connection conn = ConnUtil.getConn();
 		PreparedStatement pstat = conn.prepareStatement(sql);
 

@@ -82,6 +82,14 @@
 		}
 		return false;
 	}
+	
+	function ret() {
+		if (confirm("确定恢复该记录吗？")) {
+			//document.getElementById("changematchform").submit();
+			return true;
+		}
+		return false;
+	}
 </script>
 </head>
 <body>
@@ -106,6 +114,7 @@
 			<tr class="listheader">
 				<td width="3%" height="19"><div align="center"></div></td>
 				<td width="5%" nowrap="nowrap"><div align="center">序号</div></td>
+				<td width="5%" nowrap="nowrap"><div align="center">用户ID</div></td>
 				<td width="40%" nowrap="nowrap"><div align="center">预测名称</div></td>
 				<td width="20%" nowrap="nowrap"><div align="center">预测时间</div></td>
 				<td width="20%" nowrap="nowrap"><div align="center">详细内容</div></td>
@@ -129,24 +138,36 @@
 									<input type="checkbox" name="predId" value="${pred.predId }" />
 								</div></td>
 							<td height="20" nowrap="nowrap"><div align="center">${pred.predId }</div></td>
-							<td height="20" nowrap="nowrap"><div align="center">${pred.predName }</div></td>
-							<!-- <td height="20" nowrap="nowrap"><div align="center">
-									<c:choose>
-										<c:when test="${match.matchType eq 0}">公开比赛</c:when>
-										<c:otherwise>
-											<font style="color: red">私有比赛</font>
-										</c:otherwise>
-									</c:choose>
-								</div></td> -->
+							<td height="20" nowrap="nowrap"><div align="center">${pred.userId }</div></td>
+							
+							<c:choose>
+								<c:when test="${pred.state eq 3 }">
+									<td height="20" nowrap="nowrap"><div align="center"><del>${pred.predName }</del></div></td>
+								</c:when>
+								<c:otherwise>
+									<td height="20" nowrap="nowrap"><div align="center">${pred.predName }</div></td>
+								</c:otherwise>
+							</c:choose>
+							
 							<td height="20" nowrap="nowrap"><div align="center">${pred.time }</div></td>
 							<td height="20" nowrap="nowrap"><div align="center">
 								<a href="showpreddetail.do?pre_id=${pred.predId }">查看详情>></a>
 							</div></td>
-							<td height="20" nowrap="nowrap"><div align="center">
-											<a
-												href="changepreddetail.do?op=deletepred&pre_id=${pred.predId }&next=my"
-												onclick="return remove();">删除记录❌</a>
-								</div>
+							<c:choose>
+								<c:when test="${pred.state eq 3 }">
+									<td height="20" nowrap="nowrap"><div align="center">
+									<a href="changepreddetail.do?op=returnpred&pre_id=${pred.predId }&next=all"
+										onclick="return ret();">恢复记录✔</a>
+									</div></td>
+								</c:when>
+								<c:otherwise>
+									<td height="20" nowrap="nowrap"><div align="center">
+										<a href="changepreddetail.do?op=deletepred&pre_id=${pred.predId }&next=all"
+											onclick="return remove();">删除记录❌</a>
+									</div></td>
+								</c:otherwise>
+							</c:choose>
+							
 						</tr>
 						<!-- 这个是商品信息展示的结束 -->
 					</c:forEach>

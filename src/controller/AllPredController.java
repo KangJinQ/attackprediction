@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.Match;
+import domain.Pred;
+import domain.User;
 import service.MatchService;
+import service.PredService;
 
 /**
  * Servlet implementation class AllMatchController
@@ -21,20 +24,12 @@ import service.MatchService;
 public class AllPredController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// HttpSession session = request.getSession();
-		MatchService matchService = new MatchService();
-		List<Match> allmatchList = new ArrayList<Match>();
-		allmatchList = matchService.selectByStatus("宸查�氳繃");
-		request.setAttribute("allmatchList", allmatchList);
-		String page = request.getParameter("page");
-		// System.out.println(page);
-		if (page == null) {
-			request.getRequestDispatcher("/joinmatch.jsp").forward(request, response);
-		} else if (page.equals("showallmatch")) {
-			request.getRequestDispatcher("/allmatch.jsp").forward(request, response);
-		} else if (page.equals("joinmatch")) {
-			request.getRequestDispatcher("/joinmatch.jsp").forward(request, response);
-		}
+		PredService predService = new PredService();
+		HttpSession session = request.getSession();
+		List<Pred> predList = predService.selectPredByUid(0);
+		System.out.println(predList);
+		request.setAttribute("predList", predList);
+		request.getRequestDispatcher("/allpred.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

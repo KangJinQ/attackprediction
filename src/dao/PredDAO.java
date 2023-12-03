@@ -20,13 +20,21 @@ import util.DateUtil;
 public class PredDAO {
 	public List<Pred> selectByUid(int uid) throws SQLException{
 		List<Pred> predList = new ArrayList<Pred>();
-		String sql = "SELECT * from tab_prediction "
-					+ " WHERE user_id = ? and state != 3 "
-					+ " ORDER BY pre_id DESC ";
-		Connection conn = ConnUtil.getConn();
-		PreparedStatement pstat = conn.prepareStatement(sql);
-		pstat.setInt(1, uid);
-
+		PreparedStatement pstat = null;
+		String sql = "";
+		if(uid > 0) {
+			sql = "SELECT * from tab_prediction "
+				+ " WHERE user_id = ? and state != 3 "
+				+ " ORDER BY pre_id DESC ";
+			Connection conn = ConnUtil.getConn();
+			 pstat = conn.prepareStatement(sql);
+			pstat.setInt(1, uid);
+		} else {
+			sql = "SELECT * from tab_prediction "
+				+ " ORDER BY pre_id DESC ";
+			Connection conn = ConnUtil.getConn();
+			 pstat = conn.prepareStatement(sql);
+		}
 		ResultSet rs = pstat.executeQuery();
 		while (rs.next()) {
 			Pred pred = new Pred();

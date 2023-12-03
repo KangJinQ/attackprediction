@@ -32,7 +32,7 @@
 
 	<script>
 		function check() {
-			if (confirm("确定添加他为该比赛的管理员吗？")) {
+			if (confirm("确定添加他为管理员吗？")) {
 				var msg = document.getElementById("msg").value;
 				//var msg = ${requestScope.msg };
 				//var msg = $("input[name='msg']").val();
@@ -86,29 +86,25 @@
 							<td height="20" nowrap="nowrap"><div align="center">${user.userEmail }</div></td>
 							<td height="20" nowrap="nowrap"><div align="center">
 									<c:choose>
-										<c:when test="${user.userId eq sessionScope.user.userId }">
-
+										<c:when test="${user.userRole eq true }">
+										管理员
 										</c:when>
 										<c:otherwise>
-
-
 											<a
-												href="addmanager.do?uid=${user.userId }&mid=${requestScope.mid }&matchsystem=${requestScope.matchsystem}"
+												href="addmanager.do?uid=${user.userId }"
 												onclick="check();return true">设为管理员💪</a>
 											<br>
-
-
 										</c:otherwise>
 									</c:choose>
 								</div>
 						</tr>
 
-						<!-- 这个是商品信息展示的结束 -->
+						<!-- 这个是信息展示的结束 -->
 					</c:forEach>
 				</c:otherwise>
 			</c:choose>
 		</table>
 	</fieldset>
-	<!-- 商品显示 -->
+	<!-- 信息显示 -->
 </body>
 </html>

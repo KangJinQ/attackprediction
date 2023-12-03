@@ -94,16 +94,14 @@ public class UserService {
 		}
 	}
 	
-	
-//	public List<User> findJoinerByStatusAndMatchId(String status, int mid){
-//		List<User> userList = new ArrayList<User>();
-//		try {
-//			userList = userDao.findJoinerByStatusAndMatchId(status, mid);
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		}
-//		return userList;
-//	}
+	public void addAdminByUid(int uid) {
+		try {
+			userDao.changeAttrWithBoolValue(uid, "user_role", true);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public List<User> getAllUser() {
 		List<User> userList = new ArrayList<User>();

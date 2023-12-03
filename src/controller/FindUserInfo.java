@@ -25,8 +25,8 @@ public class FindUserInfo extends HttpServlet {
 		
 		UserService userService = new UserService();
 		List<User> allUserList = new ArrayList<User>();
-		System.out.println(allUserList);
 		allUserList = userService.getAllUser();
+		System.out.println(allUserList);
 		request.setAttribute("allUserList", allUserList);
 		//String msg = (String) request.getAttribute("msg");
 		//request.setAttribute("msg", msg);

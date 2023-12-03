@@ -47,8 +47,8 @@
 				<td><div align="center">${predResult.path3 }</div></td>
 			</tr>
 			<tr>
-				 <td colspan="3"><div align="center"><img src="./result_img/attackpredicaiton_data_3.png" 
-				 alt="Your Image"></div></td>
+				<td colspan="3"><div align="center"><img src="${predResult.imgUrl }" 
+					 alt="Your Image"></div></td>
 			</tr>
 		</table>
 	</fieldset>
