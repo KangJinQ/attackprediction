@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>预测管理</title>
+<link rel="stylesheet" type="text/css" href="styles/common03.css" />
+
+<script>
+	window.onload = function() {
+		imgCount = 0; //当前图片计数器
+		myImg = document.getElementById("myImg"); //获取图片标记对象
+		myBox = document.getElementById("box"); //获取div块对象
+		myNumberBox = document.getElementById("number"); //获取列表对象
+
+		myNumberLi = myNumberBox.getElementsByTagName("li");
+		for (i = 0; i < myNumberLi.length; i++) { //访问每一个列表元素
+			myNumberLi[i].index = i; //访问当前标记索
+			myNumberLi[i].onclick = function() { //给当前元素添加单击事件
+				for (i = 0; i < myNumberLi.length; i++) { //清楚列表元素的列样式
+					myNumberLi[i].classList.remove("active");
+				}
+
+				this.classList.add("active"); //再给当前点击的列表元素添加active类样式
+				imgCount = this.innerHTML - 1; //调整显示图片的索引值
+				myImg.src = "images/" + imgCount + ".jpg";
+			}
+		}
+
+		myBox.onmouseover = function() { //当鼠标移入div块
+			clearInterval(timeOUT); //清楚定时轮播，图片不动
+		}
+		myBox.onmouseout = function() { //鼠标移出div块
+			timeOUT = setInterval(changeImg, 2000); //每2秒一动
+		}
+		function changeImg() {
+			imgCount++; //图片索引值自动+1
+			imgCount = imgCount % 5; //超过5，从零开始
+			myImg.src = "images/" + imgCount + ".jpg"; //拼接图片显示的文件名
+			for (i = 0; i < myNumberLi.length; i++) {
+				myNumberLi[i].classList.remove("active");
+			}
+			myNumberLi[imgCount].classList.add("active");
+		}
+
+		timeOUT = setInterval(changeImg, 2000);
+	}
+</script>
+<style>
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#box {
+	width: 520px;
+	height: 280;
+	border: 1px solid red;
+	margin: 100px auto;
+	position: relative;
+}
+
+#box ul {
+	list-style: none;
+}
+
+#number {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+#number li {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 20px;
+	float: left;
+	margin: 5px;
+	background: white
+}
+
+#number li:hover {
+	color: white;
+	background: red;
+	cursor: pointer;
+}
+
+#box ul li.active {
+	background: #F30;
+}
+</style>
+
+</head>
+<body>
+	欢迎使用攻击路径预测在线管理系统 hello~ :
+	<div id="box">
+		<ul>
+			<li><img src="images/0.jpg" id="myImg" width="520px" height="280px"></li>
+		</ul>
+		<ul id="number">
+			<li class="active">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</div>
+</body>
+</html>

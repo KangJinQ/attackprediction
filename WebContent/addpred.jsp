@@ -61,11 +61,6 @@
 					</td>
 				
 				</tr>
-				<tr>
-					<td><label class="xrequired">请选择预测类型：</label></td>
-					<td><input type="radio" name="predtype" value="0">公有比赛<input
-						type="radio" name="predtype" value="1">私有比赛</td>
-				</tr>
 
 				<tr>
 					<td><input type="submit" class="submit" value="开始推理攻击路径🛏"></td>
