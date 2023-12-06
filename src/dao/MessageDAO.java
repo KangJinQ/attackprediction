@@ -74,7 +74,7 @@ public class MessageDAO {
 		pstat.setInt(1, uid);
 		ResultSet rs = pstat.executeQuery();
 		while(rs.next()){
-			userNameList.add(rs.getString("target_user"));
+			userNameList.add(rs.getString("origin_user"));
 		}
 		return userNameList;
 	}

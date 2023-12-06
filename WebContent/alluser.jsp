@@ -81,7 +81,17 @@
 							<td height="20" nowrap="nowrap"><div align="center">
 									<a href="userinfo.jsp" target="_blank">${user.userName }</a>
 								</div>
-							<td height="20" nowrap="nowrap"><div align="center">${user.userRole }</div></td>
+							<td height="20" nowrap="nowrap"><div align="center">
+									<c:choose>
+										<c:when test="${user.userRole eq true }">
+										管理员
+										</c:when>
+										<c:otherwise>
+											用户
+										</c:otherwise>
+									</c:choose>
+
+									</div></td>
 							<td height="20" nowrap="nowrap"><div align="center">${user.userPhone }</div></td>
 							<td height="20" nowrap="nowrap"><div align="center">${user.userEmail }</div></td>
 							<td height="20" nowrap="nowrap"><div align="center">
